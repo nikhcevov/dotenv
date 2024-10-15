@@ -9,10 +9,6 @@ map("n", "<leader>w", "<CMD>update<CR>", "Quick save")
 map("n", "<leader>q", "<CMD>q<CR>", "Quick quit")
 map("i", "jk", "<ESC>", "Exit insert mode")
 
--- NeoTree
--- map("n", "<leader>e", "<CMD>Neotree toggle<CR>")
--- map("n", "<leader>r", "<CMD>Neotree focus<CR>")
-
 -- Windows
 map("n", "<leader>o", "<CMD>vsplit<CR>", "New vertical split window")
 map("n", "<leader>p", "<CMD>split<CR>", "New horizontal split window")

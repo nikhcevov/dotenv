@@ -5,7 +5,7 @@ return {
 	keys = {
 		{
 			-- Customize or remove this keymap to your liking
-			"<leader>f",
+			"<leader>s",
 			function()
 				require("conform").format({ async = true })
 			end,
@@ -19,10 +19,10 @@ return {
 	opts = {
 		-- Define your formatters
 		formatters_by_ft = {
-			javascript = { "eslint_d", "prettierd", stop_after_first = true },
-			typescript = { "eslint_d", "prettierd", stop_after_first = true },
-			javascriptreact = { "eslint_d", "prettierd", stop_after_first = true },
-			typescriptreact = { "eslint_d", "prettierd", stop_after_first = true },
+			javascript = { "eslint", "prettierd", stop_after_first = true },
+			typescript = { "eslint", "prettierd", stop_after_first = true },
+			javascriptreact = { "eslint", "prettierd", stop_after_first = true },
+			typescriptreact = { "eslint", "prettierd", stop_after_first = true },
 			lua = { "stylua" },
 			css = { "prettierd" },
 			html = { "prettierd" },

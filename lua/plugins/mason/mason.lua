@@ -22,7 +22,6 @@ return {
 				"eslint",
 				"html",
 				"jsonls",
-				"ts_ls",
 				"tailwindcss",
 				"graphql",
 			},
