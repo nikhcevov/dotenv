@@ -26,6 +26,12 @@ return {
 		telescope.load_extension("file_browser")
 
 		vim.keymap.set("n", "<leader>fe", ":Telescope file_browser<CR>", { desc = "Open file explorer" })
+		vim.keymap.set(
+			"n",
+			"<leader>fE",
+			":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+			{ desc = "Open file explorer with current buffer path" }
+		)
 		vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
 		vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Fuzzy find recent files" })
 		vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find string in cwd" })
