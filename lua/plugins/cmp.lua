@@ -54,12 +54,10 @@ return {
 				}),
 			}),
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "nvim_lsp_signature_help" },
-				-- { name = "nvim_lsp_document_symbol" },
-				-- { name = "luasnip" },
-				{ name = "buffer" },
-				{ name = "path" },
+				{ name = "nvim_lsp", priority = 10 },
+				{ name = "nvim_lsp_signature_help", priority = 9 },
+				{ name = "buffer", priority = 7, max_item_count = 10 },
+				{ name = "path", priority = 6 },
 			}),
 		})
 
