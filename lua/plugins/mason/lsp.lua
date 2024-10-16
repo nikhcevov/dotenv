@@ -41,6 +41,11 @@ return {
 						},
 					})
 				end,
+				["ts_ls"] = function()
+					nvim_lsp["ts_ls"].setup({
+						capabilities = capabilities,
+					})
+				end,
 				["cssls"] = function()
 					nvim_lsp["cssls"].setup({
 						capabilities = capabilities,
@@ -73,19 +78,5 @@ return {
 				end,
 			})
 		end,
-	},
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {
-			jsx_close_tag = {
-				enable = true,
-				filetypes = { "javascriptreact", "typescriptreact" },
-			},
-			expose_as_code_action = {
-				"remove_unused",
-				"remove_unused_imports",
-			},
-		},
 	},
 }

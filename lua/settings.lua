@@ -9,6 +9,7 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.encoding = "UTF-8"
 vim.opt.ruler = true
+vim.opt.showmode = false
 vim.opt.mouse = "a"
 vim.opt.title = true
 vim.opt.ttimeoutlen = 0
@@ -20,6 +21,7 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 
 vim.opt.path:append(".,**")
+vim.opt.autoread = true
 -- vim.opt.hidden = true
 -- vim.opt.inccommand = "split"
 -- vim.opt.showcmd = true

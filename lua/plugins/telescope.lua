@@ -4,8 +4,16 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
 	config = function()
 		local telescope = require("telescope")
+		local actions = require("telescope.actions")
 
 		telescope.setup({
+			defaults = {
+				mappings = {
+					i = {
+						["<esc>"] = actions.close,
+					},
+				},
+			},
 			extensions = {
 				file_browser = {
 					-- theme = "ivy",

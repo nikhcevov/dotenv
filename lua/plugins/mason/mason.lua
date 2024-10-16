@@ -17,6 +17,7 @@ return {
 				"stylua",
 				"eslint_d",
 				-- mason-lspconfig
+				"ts_ls",
 				"lua_ls",
 				"cssls",
 				"eslint",
