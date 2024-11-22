@@ -19,17 +19,18 @@ return {
 	opts = {
 		-- Define your formatters
 		formatters_by_ft = {
-			javascript = { "eslint", "prettierd", stop_after_first = true },
-			typescript = { "eslint", "prettierd", stop_after_first = true },
-			javascriptreact = { "eslint", "prettierd", stop_after_first = true },
-			typescriptreact = { "eslint", "prettierd", stop_after_first = true },
+			-- currently formates as source.fixAll by lsp
+			-- javascript = { "prettier" },
+			-- typescript = { "prettier" },
+			-- javascriptreact = { "prettier" },
+			-- typescriptreact = { "prettier" },
 			lua = { "stylua" },
-			css = { "prettierd" },
-			html = { "prettierd" },
-			json = { "prettierd" },
-			yaml = { "prettierd" },
-			markdown = { "prettierd" },
-			graphql = { "prettierd" },
+			css = { "prettier" },
+			html = { "prettier" },
+			json = { "prettier" },
+			yaml = { "prettier" },
+			markdown = { "prettier" },
+			graphql = { "prettier" },
 		},
 		format_on_save = {
 			lsp_fallback = true,

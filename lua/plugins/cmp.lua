@@ -1,29 +1,29 @@
 return {
-	"hrsh7th/nvim-cmp",
+	"llllvvuu/nvim-cmp",
 	event = "InsertEnter",
+	branch = "feat/above",
 	dependencies = {
-		"hrsh7th/cmp-buffer", -- source for text in buffer
-		"hrsh7th/cmp-path", -- source for file system paths
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
-		-- "hrsh7th/cmp-nvim-lsp-document-symbol",
-		-- {
-		-- 	"L3MON4D3/LuaSnip",
-		-- 	version = "v2.*",
-		-- 	-- install jsregexp (optional!).
-		-- 	build = "make install_jsregexp",
-		-- },
-		-- "rafamadriz/friendly-snippets",
-		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"onsails/lspkind.nvim",
 	},
+
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
-		-- local luasnip = require("luasnip")
-		-- require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
+			view = {
+				entries = { name = "custom", selection_order = "near_cursor", vertical_positioning = "above" },
+			},
+			experimental = {
+				-- TODO: Ghost text is conflicting with other virtual text providers like ai autocomplete
+				-- ghost_text = true,
+			},
 			performance = {
-				max_view_entries = 10,
+				-- max_view_entries = 10,
 			},
 			window = {
 				completion = cmp.config.window.bordered(),
@@ -32,26 +32,19 @@ return {
 			formatting = {
 				fields = { "abbr", "kind", "menu" },
 				format = lspkind.cmp_format({
-					mode = "symbol", -- show only symbol annotations
 					maxwidth = 50,
 					ellipsis_char = "...",
 				}),
 			},
-			-- snippet = {
-			-- 	expand = function(args)
-			-- 		luasnip.lsp_expand(args.body)
-			-- 	end,
-			-- },
-			preselect = cmp.PreselectMode.None,
 			mapping = cmp.mapping.preset.insert({
-				-- ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-				-- ["<C-f>"] = cmp.mapping.scroll_docs(4),
-				-- ["<C-Space>"] = cmp.mapping.complete(),
-				["<C-e>"] = cmp.mapping.close(),
-				["<CR>"] = cmp.mapping.confirm({
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = true,
-				}),
+				-- TODO: Solve conflicts
+				-- ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+				-- ["<C-d>"] = cmp.mapping.scroll_docs(4),
+				["<C-Space>"] = cmp.mapping.complete(),
+				["<C-p>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+				["<C-n>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<C-e>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp", priority = 10 },
@@ -61,9 +54,23 @@ return {
 			}),
 		})
 
-		vim.cmd([[
-      set completeopt=menuone,noinsert,noselect
-      highlight! default link CmpItemKind CmpItemMenuDefault
-    ]])
+		-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+		cmp.setup.cmdline({ "/", "?" }, {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = "buffer" },
+			},
+		})
+
+		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{ name = "cmdline" },
+			}),
+			matching = { disallow_symbol_nonprefix_matching = false },
+		})
 	end,
 }

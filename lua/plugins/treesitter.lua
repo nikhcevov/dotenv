@@ -15,7 +15,6 @@ return {
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						-- scope_incremental = "<CR>",
 						node_incremental = "v",
 						node_decremental = "V",
 					},
@@ -44,32 +43,24 @@ return {
 						goto_next_start = {
 							["]m"] = "@function.outer",
 							["]]"] = { query = "@class.outer", desc = "Next class start" },
-							["]o"] = "@loop.*",
-							["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
-							["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold start" },
-							["]j"] = "@jsx.element",
+							-- ["]o"] = "@loop.*",
+							-- ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+							-- ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold start" },
 						},
 						goto_next_end = {
 							["]M"] = "@function.outer",
 							["]["] = "@class.outer",
-							["]Z"] = { query = "@fold", query_group = "folds", desc = "Next fold end" },
+							-- ["]Z"] = { query = "@fold", query_group = "folds", desc = "Next fold end" },
 						},
 						goto_previous_start = {
 							["[m"] = "@function.outer",
 							["[["] = "@class.outer",
-							["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold start" },
+							-- ["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold start" },
 						},
 						goto_previous_end = {
 							["[M"] = "@function.outer",
 							["[]"] = "@class.outer",
-							["[Z"] = { query = "@fold", query_group = "folds", desc = "Previous fold end" },
-							["[j"] = "@jsx.element",
-						},
-						goto_next = {
-							["]d"] = "@conditional.outer",
-						},
-						goto_previous = {
-							["[d"] = "@conditional.outer",
+							-- ["[Z"] = { query = "@fold", query_group = "folds", desc = "Previous fold end" },
 						},
 					},
 					select = {

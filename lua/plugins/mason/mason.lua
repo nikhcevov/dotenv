@@ -13,9 +13,8 @@ return {
 			},
 			ensure_installed = {
 				-- mason
-				"prettierd",
+				"prettier",
 				"stylua",
-				"eslint_d",
 				-- mason-lspconfig
 				"ts_ls",
 				"lua_ls",

@@ -1,30 +1,55 @@
-vim.o.background = "light"
-
 return {
-	"Mofiqul/vscode.nvim",
-	lazy = false,
-	priority = 1000,
-	-- name = "catppuccin",
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		priority = 1000,
+		name = "catppuccin",
 
-	config = function()
-		require("vscode").setup()
-		-- require("catppuccin").setup({
-		-- 	flavour = "latte",
-		-- 	no_italic = true,
-		-- 	term_colors = true,
-		-- 	integrations = {
-		-- 		cmp = true,
-		-- 		treesitter = true,
-		-- 		mason = true,
-		-- 		telescope = { enabled = true },
-		-- 	},
-		-- 	dim_inactive = {
-		-- 		enabled = true, -- dims the background color of inactive window
-		-- 		shade = "dark",
-		-- 		percentage = 0.25, -- percentage of the shade to apply to the inactive window
-		-- 	},
-		-- })
+		config = function()
+			require("catppuccin").setup({
+				flavour = "mocha",
+				term_colors = true,
+				integrations = {
+					cmp = true,
+					treesitter = true,
+					mason = true,
+					telescope = { enabled = true },
+					gitsigns = true,
+					indent_blankline = {
+						colored_indent_levels = false,
+						enabled = true,
+					},
+					native_lsp = {
+						enabled = true,
+						virtual_text = {
+							information = { "italic" },
+							warnings = { "italic" },
+							errors = { "italic" },
+							hints = { "italic" },
+						},
+						underlines = {
+							information = { "underline" },
+							warnings = { "underline" },
+							errors = { "underline" },
+							hints = { "underline" },
+						},
+					},
+				},
+				dim_inactive = {
+					enabled = false,
+					shade = "dark",
+					percentage = 0.25,
+				},
+			})
 
-		vim.cmd("colorscheme vscode")
-	end,
+			vim.cmd("colorscheme catppuccin")
+		end,
+	},
+	-- {
+	-- 	"sonph/onehalf",
+	-- 	config = function(plugin)
+	-- 		vim.opt.rtp:append(plugin.dir .. "/vim")
+	-- 		vim.cmd("colorscheme onehalflight")
+	-- 	end,
+	-- },
 }

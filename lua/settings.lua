@@ -25,3 +25,7 @@ vim.opt.autoread = true
 -- vim.opt.hidden = true
 -- vim.opt.inccommand = "split"
 -- vim.opt.showcmd = true
+
+vim.diagnostic.config({
+	virtual_text = false,
+})
