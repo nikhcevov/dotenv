@@ -62,3 +62,7 @@ map("n", "<Esc>", function()
 
 	vim.cmd.fclose({ bang = true })
 end, "Close window if not modifiable, otherwise clear LSP references")
+
+map("n", "<leader>fa", "<CMD>Neotree filesystem reveal left<CR>", "Open Neotree filesystem")
+map("n", "<leader>fx", "<CMD>Neotree git_status reveal left<CR>", "Open Neotree filesystem")
+map("n", "<leader>fz", "<CMD>Neotree buffers reveal left<CR>", "Open Neotree filesystem")

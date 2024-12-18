@@ -122,4 +122,7 @@ return {
 			require("nvim-surround").setup()
 		end,
 	},
+	{
+		"windwp/nvim-ts-autotag",
+	},
 }
