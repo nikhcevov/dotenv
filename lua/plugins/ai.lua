@@ -13,10 +13,15 @@ return {
 	-- 	end,
 	-- },
 	{
-		"Exafunction/codeium.vim",
+		"Exafunction/codeium.nvim",
 		event = "BufEnter",
 		config = function()
-			-- vim.g.codeium_disabled = 0
+			require("codeium").setup({
+				enable_cmp_source = false,
+				virtual_text = {
+					enabled = true,
+				},
+			})
 		end,
 	},
 }

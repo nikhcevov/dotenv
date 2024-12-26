@@ -1,7 +1,9 @@
+local utils = require("utils")
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.syntax = "on"
+-- vim.opt.syntax = "on"
 vim.opt.autoindent = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
@@ -27,5 +29,8 @@ vim.opt.autoread = true
 -- vim.opt.showcmd = true
 
 vim.diagnostic.config({
-	virtual_text = false,
+	-- virtual_text = false,
+	float = {
+		border = utils.border,
+	},
 })

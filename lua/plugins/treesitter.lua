@@ -8,7 +8,7 @@ return {
 
 			configs.setup({
 				highlight = {
-					enabled = true,
+					enable = true,
 					additional_vim_regex_highlighting = false,
 				},
 				indent = { enable = true },
@@ -123,6 +123,12 @@ return {
 		end,
 	},
 	{
-		"windwp/nvim-ts-autotag",
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup({
+				disable_filetype = { "TelescopePrompt", "vim" },
+			})
+		end,
 	},
 }

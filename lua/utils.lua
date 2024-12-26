@@ -53,4 +53,6 @@ M.close_floating_windows = function()
 	end
 end
 
+M.border = "rounded"
+
 return M

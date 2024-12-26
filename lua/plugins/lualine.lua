@@ -4,7 +4,7 @@ local function getCompletionStatusString()
 end
 
 return {
-	"nvim-lualine/lualine.nvim",
+	"nvim-lualine/lualine.nvim", -- Provides a nice statusline on bottom of editor
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("lualine").setup({

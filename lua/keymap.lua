@@ -41,8 +41,9 @@ map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
 map("n", "gy", vim.lsp.buf.type_definition, "Go to type definition")
 map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
 map("n", "gr", vim.lsp.buf.references, "Go to references")
-map({ "n", "v" }, "g.", vim.lsp.buf.code_action, "Run code action")
+-- map({ "n", "v" }, "g.", vim.lsp.buf.code_action, "Run code action")
 map("n", "<leader>cd", vim.lsp.buf.rename, "Run LSP rename action")
+map("n", "gh", vim.lsp.buf.hover, "Show LSP hover")
 
 -- Diagnostics
 map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostics in popup")
