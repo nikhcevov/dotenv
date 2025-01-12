@@ -36,6 +36,7 @@ return {
 					"graphql",
 					"gitignore",
 					"dockerfile",
+					"nix",
 				},
 				textobjects = {
 					move = {

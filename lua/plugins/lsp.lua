@@ -27,6 +27,7 @@ return {
 					"jsonls",
 					"tailwindcss",
 					"graphql",
+					"nil_ls",
 				},
 			})
 		end,

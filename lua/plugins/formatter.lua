@@ -31,6 +31,8 @@ return {
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			graphql = { "prettier" },
+			-- TODO: Add nixfmt with mason https://github.com/NixOS/nixfmt
+			-- nix = { "nixfmt" },
 		},
 		format_on_save = {
 			lsp_fallback = true,
